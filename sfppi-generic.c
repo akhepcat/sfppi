@@ -304,7 +304,7 @@ int dom(void)
 
 	if(!read_eeprom(0x51)); else exit(EXIT_FAILURE);
 
-	temperature = (A51[96] + (float) A51[97]/256);
+	temperature = ((char)A51[96] + (float) A51[97]/256);
 	vcc = (float)(A51[98]<<8 | A51[99]) * 0.0001;
 	tx_bias = (float)(A51[100]<<8 | A51[101]) * 0.002;
 	optical_tx = 10 * log10((float)(A51[102]<<8 | A51[103]) * 0.0001);
